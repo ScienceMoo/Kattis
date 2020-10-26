@@ -55,4 +55,5 @@ for index in range(1, 8):
 	if diagonal.count(1) > 1:
 		valid = False
 
+# simply check that there are 8 queens and no two queens share the same column or row
 print("valid" if valid and (total == 32) else "invalid")

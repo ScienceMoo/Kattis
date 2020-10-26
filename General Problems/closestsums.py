@@ -1,6 +1,7 @@
 import sys
 
 
+# just check all permutations
 def find_closest_sum(old_numbers, query):
 	new_numbers = []
 

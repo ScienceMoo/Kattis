@@ -9,6 +9,7 @@ days = 0
 printers = 1
 statues = 0
 
+# keep printing printers until you have enough to print all statues in 1 day
 while statues < n:
 	if (n-statues) > printers:
 		days += 1
