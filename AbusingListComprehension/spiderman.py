@@ -48,16 +48,19 @@ while index < len(lines):
 
 	for i in range(len(distances)):
 		for d in range(maximum_distance + 1):
-			current_distance = positions[i][d]
+			current_max = positions[i][d]
 			up = d + distances[i]
 			down = d - distances[i]
 
-			if positions[i + 1][up] > max(up, current_distance):
-				positions[i + 1][up] = max(up, current_distance)
+			if positions[i + 1][up] > max(up, current_max):
+				# going up so increase the current_max if necessary
+				positions[i + 1][up] = max(up, current_max)
 				directions[i + 1][up] = 1
 
-			if down >= 0 and positions[i + 1][down] > current_distance:
-				positions[i + 1][down] = current_distance
+			# this will only happen when i > 0
+			if down >= 0 and positions[i + 1][down] > current_max:
+				# going down so keep the same current max
+				positions[i + 1][down] = current_max
 				directions[i + 1][down] = -1
 
 	result = []
