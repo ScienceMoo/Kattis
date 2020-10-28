@@ -35,7 +35,6 @@ class Building:
 				return minus_result
 
 
-# initialize the first digit using numbers 1-9
 while index < len(lines):
 	distances = list(map(int, lines[index].split()))
 	largest_distance = max(distances)
