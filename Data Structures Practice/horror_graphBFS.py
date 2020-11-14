@@ -1,5 +1,6 @@
 import sys
 
+
 # get lines and remove newline character
 lines = list(map(str.rstrip, sys.stdin))
 
@@ -11,23 +12,28 @@ scores = [float('inf')] * num_movies
 visited = [False] * num_movies
 
 similarities = [[] for _ in range(num_movies)]
-stack = list(map(int, lines[1].split()))
-
-for s in stack:
-	scores[s] = 0
+horror_list = list(map(int, lines[1].split()))
 
 for line in lines[2:]:
 	movies = list(map(int, line.split()))
 	similarities[movies[0]].append(movies[1])
 	similarities[movies[1]].append(movies[0])
 
-while len(stack) > 0:
-	i = stack.pop(0)
-	if not visited[i]:
-		visited[i] = True
-		for movie in similarities[i]:
-			scores[movie] = min(scores[i] + 1, scores[movie])
-			stack.append(movie)
+stack = []
 
-# print(scores)
+for h in horror_list:
+	visited[h] = True
+	scores[h] = 0
+	for o in similarities[h]:
+		stack.append((h, o))
+
+while len(stack) > 0:
+	i, j = stack.pop(0)
+	if not visited[j]:
+		scores[j] = scores[i] + 1
+		visited[j] = True
+		for movie in similarities[j]:
+			stack.append((j, movie))
+
+print(scores)
 print(scores.index(max(scores)))
