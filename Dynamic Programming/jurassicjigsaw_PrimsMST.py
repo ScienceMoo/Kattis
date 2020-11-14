@@ -1,7 +1,6 @@
 from heapq import heappop, heappush
 
 
-# noinspection PyTypeChecker
 class Graph:
   def __init__(self, n):
     self.n = n
@@ -24,7 +23,7 @@ class Graph:
     edges = []
     totalScore = 0
     for i in range(1, self.n):
-      # use heap to sort all the edges from smallest to largest
+      # use heap as priority queue to sort the edges
       heappush(heap, (self.edges[0][i], 0, i))
       # initialize best for all is their edge with first one
       best[i] = self.edges[0][i]
