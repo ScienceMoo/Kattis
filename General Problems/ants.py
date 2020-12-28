@@ -16,6 +16,6 @@ for _ in range(num_tests):
 	ants = sorted(ants)
 
 	# max time depends on the outermost ants
-	max_time = [ants[0], ants[n - 1], l - ants[0], l - ants[n - 1]]
+	max_time = max(ants[0], ants[n - 1], l - ants[0], l - ants[n - 1])
 
-	print(str(min_time) + " " + str(max(max_time)))
+	print(str(min_time) + " " + str(max_time))
