@@ -1,3 +1,3 @@
-# Kattis
+# Kattis Solutions
 
-My solutions to kattis problems that were fun to do for homework and competitions!
+My solutions to Kattis programming exercises that were fun to do for homework and competitions!
